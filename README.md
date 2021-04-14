@@ -3,7 +3,7 @@
 Setup:
 1. Clone the repo with: `git clone https://github.com/JerryGQian/CMSC828D-A4.git`
 2. Make sure all dependencies are installed: psycopg2
-3. Start up the server: `python server.py`, this should initialize the database and server the dashboard at `http://localhost:8000/`
+3. Start up the server: `python server.py`, this should initialize the database and server the dashboard at `http://localhost:8000/`. Read below before visiting the dashboard!
 
 Experiment:
 1. The experiment will be an open ended exploration of the dashboard. You will be able to play around with the interactions and compare Covid data between states. Whenever you discovered something interesting from the visualizations, type your discovery into the `What I discovered...` text input and click the purple submit button. Please explore for **at least 5 minutes and try to report any discovery, big or small**. Have fun with the exploration! The experiment begins when you open the dashboard at `http://localhost:8000/`.
