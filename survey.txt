@@ -1,0 +1,37 @@
+###########################################
+## Post Exploration Survey (4 questions) ##
+###########################################
+______________________________________________________________________________________________________________
+1. On a scale of 1-10, 
+    how intuitive was the interface.
+    1='very difficult', 10='very intuitive/easy to use'
+    
+  Response: >>  << 
+______________________________________________________________________________________________________________
+2. On a scale of 1-10, 
+    how effective where the visualizations and interactions in helping you make comparisons between states. 
+    1='not effective', 10='very effective'
+
+  Response: >>  << 
+______________________________________________________________________________________________________________
+3. On a scale of 1-10, 
+    How much did the dashboard encourage you to explore the data?
+    1='none at all', 10='very much'
+
+  Response: >>  << 
+______________________________________________________________________________________________________________
+4. Please rank (1 to 6) the interactions/features in terms of usefulness and importance to you (decreasing order):
+
+  Type a number after each interaction
+                 Attribute Selector: >>  <<
+               Date Range Selectors: >>  <<
+             State Selection Module: >>  <<
+                       Reset Button: >>  <<
+                Scroll Date Zooming: >>  <<
+Deuteranopia Mode (Colorblind Mode): >>  <<
+______________________________________________________________________________________________________________
+
+#######################################################################################
+## Thanks for taking the time to complete this!                                      ##
+## Please include this in your submission along with "log.txt" to jerry@qian.ninja!  ##
+#######################################################################################
