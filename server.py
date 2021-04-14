@@ -51,9 +51,10 @@ def getData():
   global reqState
   thisState = int(request.args.get('reqState'))
   #print(thisState, reqState)
+  staleresp = Response(response=json.dumps({'stale': True}),status=200, mimetype='application/json')
   if reqState != thisState:
     print("STALE REQ: ABORTING")
-    return
+    return staleresp
 
   try:
     conn = psycopg2.connect("dbname='a4database' user='cmsc828d'")
@@ -83,7 +84,7 @@ def getData():
 
   if reqState != thisState:
     print("STALE REQ: ABORTING")
-    return
+    return staleresp
   
   if rangeLength.days > 14600:
     interval = 365 #annual
@@ -96,7 +97,7 @@ def getData():
 
   if reqState != thisState:
     print("STALE REQ: ABORTING")
-    return
+    return staleresp
   
   # Get all rows for all states
   data = []
@@ -105,7 +106,7 @@ def getData():
   for s in statesList:
     if reqState != thisState:
       print("STALE REQ: ABORTING")
-      return
+      return staleresp
     i += 1
 
     cur.execute("SELECT \"submission_date\",\"{}\" FROM public.us_states_covid WHERE \"state\" = '{}' AND ((CAST('{}' AS date) - CAST(submission_date AS date)) % '{}') = 0 AND \"submission_date\" >= '{}' AND \"submission_date\" <= '{}' ORDER BY \"submission_date\" ASC;".format(attribute, s, mx, interval, mn, mx))
@@ -122,10 +123,10 @@ def getData():
 
   if reqState != thisState:
     print("STALE REQ: ABORTING")
-    return
+    return staleresp
     
   # prep data for delivery
-  jsonData = {'data': data, 'dataAvg': dataAvg, 'min': mn.strftime("%Y-%m-%d"), 'max': mx.strftime("%Y-%m-%d")}
+  jsonData = {'stale': False, 'data': data, 'dataAvg': dataAvg, 'min': mn.strftime("%Y-%m-%d"), 'max': mx.strftime("%Y-%m-%d")}
   resp = Response(response=json.dumps(jsonData),status=200, mimetype='application/json')
   return resp
 

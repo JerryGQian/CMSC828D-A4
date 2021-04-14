@@ -284,19 +284,21 @@
           fetch(reqStateUrl,{"credentials": "same-origin"})
           .then(response => response.json())
           .then(obj => {
-            console.log(obj);
+            console.log("ReqState: " + obj);
             reqState = obj
             url.search = new URLSearchParams({"reqState": reqState, "states": statesToString(), "min":new Date(mn).toISOString().split('T')[0], "max":new Date(mx).toISOString().split('T')[0], "attribute":currentAttribute}).toString();
             fetch(url,{"credentials": "same-origin"})
             .then(response => response.json())
             .then(obj => {
-              refreshing = false;
-              if (zoomed) {
-                writeLog("interaction", "dateZoom", mn.toLocaleString() + "-" + mx.toLocaleString());
-                zoomed = false;
+              if (!obj['stale']) {
+                refreshing = false;
+                if (zoomed) {
+                  writeLog("interaction", "dateZoom", mn.toLocaleString() + "-" + mx.toLocaleString());
+                  zoomed = false;
+                }
+                updateLineChart(obj['data']);
+                updateBarChart(obj['dataAvg']);
               }
-              updateLineChart(obj['data']);
-              updateBarChart(obj['dataAvg']);
             });
           });
 
@@ -562,51 +564,34 @@
   // initial creation of the attribute buttons, sliders, and histogram
   init();
   
+  console.log("Sending initial request...");
   reqStateUrl.search = new URLSearchParams({}).toString();
   fetch(reqStateUrl,{"credentials": "same-origin"})
   .then(response => response.json())
   .then(obj => {
-    console.log(obj);
+    console.log("ReqState: " + obj);
     reqState = obj
+    console.log({"reqState": reqState, "states": statesToString(), "min":"-1", "max":"-1", "attribute":currentAttribute});
     url.search = new URLSearchParams({"reqState": reqState, "states": statesToString(), "min":"-1", "max":"-1", "attribute":currentAttribute}).toString();
+    console.log("GETDATA:" + url.search);
     fetch(url,{"credentials": "same-origin"})
     .then(response => response.json())
     .then(obj => {
+      console.log(obj);
       let attributes = obj['attributes']
       let data = obj['data']
       let dataAvg = obj['dataAvg']
       mn = Date.parse(obj['min'])
       mx = Date.parse(obj['max'])
-      console.log(mn + " " + mx + " " + Date.parse(new Date(mn)));
+      console.log(new Date(mn) + " " + new Date(mx));
       truemn = mn;
       truemx = mx;
       document.getElementById("start").value = new Date(mn).toISOString().split('T')[0];
       document.getElementById("end").value = new Date(mx).toISOString().split('T')[0];
       
-      //createDateRangeSlider(mn, mx);
       renderLineChart(data);
       renderBarChart(dataAvg);
     });
-  });
-
-  url.search = new URLSearchParams({"reqState": reqState, "states": statesToString(), "min":"-1", "max":"-1", "attribute":currentAttribute}).toString();
-  fetch(url,{"credentials": "same-origin"})
-  .then(response => response.json())
-  .then(obj => {
-    let attributes = obj['attributes']
-    let data = obj['data']
-    let dataAvg = obj['dataAvg']
-    mn = Date.parse(obj['min'])
-    mx = Date.parse(obj['max'])
-    console.log(mn + " " + mx + " " + Date.parse(new Date(mn)));
-    truemn = mn;
-    truemx = mx;
-    document.getElementById("start").value = new Date(mn).toISOString().split('T')[0];
-    document.getElementById("end").value = new Date(mx).toISOString().split('T')[0];
-    
-    //createDateRangeSlider(mn, mx);
-    renderLineChart(data);
-    renderBarChart(dataAvg);
   });
 </script>
 </body>
