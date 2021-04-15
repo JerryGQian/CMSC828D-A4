@@ -36,6 +36,8 @@ def writeLog():
   f = open("log.txt", "a")
   f.write(str(round((datetime.now() - creationTime).total_seconds(), 2)) + "," + code + "," + logStr + "," + value + "\n")
   resp = Response(response="Success",status=200, mimetype='text/plain')
+  h = resp.headers
+  h['Access-Control-Allow-Origin'] = "*"
   return resp
   
 
@@ -44,6 +46,8 @@ def getState():
   global reqState
   reqState += 1
   resp = Response(response=str(reqState),status=200, mimetype='text/plain')
+  h = resp.headers
+  h['Access-Control-Allow-Origin'] = "*"
   return resp
 
 @app.route('/get-data')
@@ -52,6 +56,8 @@ def getData():
   thisState = int(request.args.get('reqState'))
   #print(thisState, reqState)
   staleresp = Response(response=json.dumps({'stale': True}),status=200, mimetype='application/json')
+  h = staleresp.headers
+  h['Access-Control-Allow-Origin'] = "*"
   if reqState != thisState:
     print("STALE REQ: ABORTING")
     return staleresp
@@ -128,6 +134,8 @@ def getData():
   # prep data for delivery
   jsonData = {'stale': False, 'data': data, 'dataAvg': dataAvg, 'min': mn.strftime("%Y-%m-%d"), 'max': mx.strftime("%Y-%m-%d")}
   resp = Response(response=json.dumps(jsonData),status=200, mimetype='application/json')
+  h = resp.headers
+  h['Access-Control-Allow-Origin'] = "*"
   return resp
 
 def dbCommand(conn, comm):
