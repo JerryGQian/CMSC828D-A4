@@ -209,6 +209,7 @@ def initLog():
   except OSError:
     pass
   f = open("log.txt", 'a')
+  f.write("time,category,type,val\n")
   f.close()
 
 if __name__ == "__main__":
