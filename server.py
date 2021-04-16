@@ -33,7 +33,7 @@ def writeLog():
   if logStr == "initialized":
     creationTime = datetime.now()
   #print("Writing log:", logStr)
-  f = open("log.txt", "a")
+  f = open("log.csv", "a")
   f.write(str(round((datetime.now() - creationTime).total_seconds(), 2)) + "," + code + "," + logStr + "," + value + "\n")
   resp = Response(response="Success",status=200, mimetype='text/plain')
   h = resp.headers
@@ -205,10 +205,10 @@ def initLog():
   global creationTime
   creationTime = datetime.now()
   try:
-    os.remove("log.txt")
+    os.remove("log.csv")
   except OSError:
     pass
-  f = open("log.txt", 'a')
+  f = open("log.csv", 'a')
   f.write("time,category,type,val\n")
   f.close()
 
