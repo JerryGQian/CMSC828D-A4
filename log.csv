@@ -1,16 +1,1 @@
-time,category,type,val
-0.0,general,initialized,
-13.43,interaction,addStateSelector,
-14.25,interaction,addStateSelector,
-16.69,interaction,addStateSelector,
-17.83,interaction,removeStateSelector,
-19.75,interaction,changeStates,GA
-27.98,interaction,changeEndDate,2021-01-15
-31.15,interaction,dateZoom,2020-01-31-2021-01-06
-32.47,interaction,dateZoom,2020-02-12-2020-12-25
-34.22,interaction,dateZoom,2020-02-21-2020-12-16
-36.23,interaction,changeAttribute,new_death
-52.3,userState,discovery,wow that's interesting the california is for nia
-56.37,interaction,reset,
-59.63,interaction,addStateSelector,
-69.88,userState,discovery,interesting point
+time,user,category,type,val

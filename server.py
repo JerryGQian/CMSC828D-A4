@@ -27,6 +27,7 @@ def renderPage():
 @app.route('/write-log')
 def writeLog():
   global creationTime
+  userID = 1
   code = request.args.get('code')
   logStr = request.args.get('logStr')
   value = request.args.get('value')
@@ -34,7 +35,7 @@ def writeLog():
     creationTime = datetime.now()
   #print("Writing log:", logStr)
   f = open("log.csv", "a")
-  f.write(str(round((datetime.now() - creationTime).total_seconds(), 2)) + "," + code + "," + logStr + "," + value + "\n")
+  f.write(str(round((datetime.now() - creationTime).total_seconds(), 2)) + "," + str(userID) + "," + code + "," + logStr + "," + value + "\n")
   resp = Response(response="Success",status=200, mimetype='text/plain')
   h = resp.headers
   h['Access-Control-Allow-Origin'] = "*"
@@ -209,7 +210,7 @@ def initLog():
   except OSError:
     pass
   f = open("log.csv", 'a')
-  f.write("time,category,type,val\n")
+  f.write("time,user,category,type,val\n")
   f.close()
 
 if __name__ == "__main__":
