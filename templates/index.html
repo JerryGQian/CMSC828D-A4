@@ -137,13 +137,13 @@
   }
 
   function changeStartDate() {
-    writeLog("interaction", "changeStartDate", mn.toLocaleString());
+    writeLog("dateSelectionModule", "changeStartDate", mn.toLocaleString());
     refreshCharts();
   }
 
   function changeEndDate() {
     refreshCharts();
-    writeLog("interaction", "changeEndDate", mx.toLocaleString());
+    writeLog("dateSelectionModule", "changeEndDate", mx.toLocaleString());
   }
 
   function toggleCBMode() {
@@ -155,7 +155,7 @@
       colorMode = 0;
     }
     
-    writeLog("interaction", (colorMode == 1 ? "cbModeOn" : "cbModeOff"));
+    writeLog("cbMode", (colorMode == 1 ? "cbModeOn" : "cbModeOff"));
     refreshStateSelectorColors();
     refreshCharts();
   }
@@ -168,7 +168,7 @@
   }
 
   function reset() {
-    writeLog("interaction", "reset")
+    writeLog("reset", "reset")
     mn = truemn;
     mx = truemx;
     document.getElementById("start").value = new Date(mn).toISOString().split('T')[0];
@@ -197,7 +197,7 @@
   }
 
   function addStateSelector() {
-    writeLog("interaction", "addStateSelector");
+    writeLog("stateSelectionModule", "addStateSelector");
     if (stateNumber <= stateLimit - 1) {
       stateNumber += 1;
       element = document.getElementById("state-selectors");
@@ -215,7 +215,7 @@
   }
 
   function removeStateSelectorClick() {
-    writeLog("interaction", "removeStateSelector");
+    writeLog("stateSelectionModule", "removeStateSelector");
     removeStateSelector();
     refreshCharts();
   }
@@ -256,12 +256,12 @@
   }
 
   function changeAttribute() {
-    writeLog("interaction", "changeAttribute", document.getElementById("attribute-dropdown").value);
+    writeLog("changeAttribute", "changeAttribute", document.getElementById("attribute-dropdown").value);
     refreshCharts();
   }
 
   function changeState(i) {
-    writeLog("interaction", "changeStates", document.getElementById("state" + i + "-dropdown").value);
+    writeLog("stateSelectionModule", "changeStates", document.getElementById("state" + i + "-dropdown").value);
     refreshCharts();
   }
 
@@ -293,7 +293,7 @@
               if (!obj['stale']) {
                 refreshing = false;
                 if (zoomed) {
-                  writeLog("interaction", "dateZoom", mn.toLocaleString() + "-" + mx.toLocaleString());
+                  writeLog("dateZoom", "dateZoom", mn.toLocaleString() + "-" + mx.toLocaleString());
                   zoomed = false;
                 }
                 updateLineChart(obj['data']);
