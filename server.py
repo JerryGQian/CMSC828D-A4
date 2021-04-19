@@ -27,7 +27,7 @@ def renderPage():
 @app.route('/write-log')
 def writeLog():
   global creationTime
-  userID = 1
+  userID = 3
   code = request.args.get('code')
   logStr = request.args.get('logStr')
   value = request.args.get('value')

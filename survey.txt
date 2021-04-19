@@ -20,7 +20,11 @@ ________________________________________________________________________________
 
   Response: >>  << 
 ______________________________________________________________________________________________________________
-4. Please rank (1 to 6) the interactions/features in terms of usefulness and importance to you (decreasing order):
+4. What did you enjoy most about the dashboard, what could be improved?
+
+  Response: >>  << 
+______________________________________________________________________________________________________________
+5. Please rank (1 to 6) the interactions/features in terms of usefulness and importance to you (decreasing order):
 
   Type a number after each interaction
                  Attribute Selector: >>  <<

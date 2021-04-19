@@ -1,1 +1,40 @@
 time,user,category,type,val
+0.0,3,general,initialized,
+20.45,3,stateSelectionModule,addStateSelector,
+30.74,3,stateSelectionModule,changeStates,DE
+40.35,3,stateSelectionModule,changeStates,NY
+55.83,3,stateSelectionModule,changeStates,PA
+59.53,3,stateSelectionModule,addStateSelector,
+63.31,3,stateSelectionModule,addStateSelector,
+68.2,3,stateSelectionModule,addStateSelector,
+70.49,3,stateSelectionModule,removeStateSelector,
+76.21,3,stateSelectionModule,changeStates,NY
+86.63,3,stateSelectionModule,changeStates,PA
+98.62,3,stateSelectionModule,changeStates,WV
+106.87,3,stateSelectionModule,changeStates,TX
+128.0,3,stateSelectionModule,changeStates,MD
+138.91,3,stateSelectionModule,changeStates,FL
+258.01,3,userState,discovery,New york/PA/new england had a big spike in march april, didnt have much of a second wave in summer, did have a 3rd wave along with other non-new england states
+262.47,3,changeAttribute,changeAttribute,new_death
+272.7,3,changeAttribute,changeAttribute,tot_death
+329.02,3,userState,discovery,same with deaths, new england states started out worse, but other states like texas florida caught up in august and is now much worse
+335.48,3,changeAttribute,changeAttribute,tot_cases
+348.83,3,changeAttribute,changeAttribute,new_case
+388.01,3,userState,discovery,it seems like since initial outbreak, handled it better relative to their size
+404.47,3,dateSelectionModule,changeEndDate,2020-06-17
+411.29,3,dateSelectionModule,changeStartDate,2020-01-22
+417.59,3,dateZoom,dateZoom,2020-02-23-2020-06-23
+419.51,3,dateZoom,dateZoom,2020-02-20-2020-06-26
+420.6,3,dateZoom,dateZoom,2020-02-17-2020-06-29
+422.31,3,dateZoom,dateZoom,2020-02-14-2020-07-02
+423.47,3,dateZoom,dateZoom,2020-02-11-2020-07-05
+424.71,3,dateZoom,dateZoom,2020-02-08-2020-07-08
+425.87,3,dateZoom,dateZoom,2020-02-05-2020-07-11
+432.21,3,dateSelectionModule,changeStartDate,2020-02-05
+434.68,3,dateZoom,dateZoom,2020-02-17-2020-07-23
+438.28,3,dateSelectionModule,changeEndDate,2020-07-31
+444.33,3,dateSelectionModule,changeEndDate,2020-08-22
+467.15,3,stateSelectionModule,changeStates,OH
+470.54,3,stateSelectionModule,changeStates,ME
+476.37,3,stateSelectionModule,changeStates,LA
+480.36,3,stateSelectionModule,changeStates,GA
